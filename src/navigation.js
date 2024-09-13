@@ -83,6 +83,10 @@ export const headerData = {
           text: 'Subscription',
           href: getPermalink('/landing/subscription'),
         },
+        {
+          text: 'Dev',
+          href: getPermalink('/landing/dev'),
+        },
       ],
     },
     {

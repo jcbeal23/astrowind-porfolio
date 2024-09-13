@@ -1,0 +1,181 @@
+---
+// src/pages/index.astro
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon';
+
+const services = [
+  { icon: 'lucide:code', title: 'Desarrollo Web', description: 'Sitios web personalizados con las últimas tecnologías' },
+  { icon: 'lucide:palette', title: 'Diseño UI/UX', description: 'Interfaces de usuario intuitivas y hermosas' },
+  { icon: 'lucide:smartphone', title: 'Apps Móviles', description: 'Aplicaciones móviles nativas y multiplataforma' },
+  { icon: 'lucide:globe', title: 'Optimización SEO', description: 'Mejora tu visibilidad en línea y rankings' },
+];
+
+const portfolio = [
+  { image: '/placeholder.svg', title: 'Proyecto 1', description: 'Sitio web de comercio electrónico' },
+  { image: '/placeholder.svg', title: 'Proyecto 2', description: 'Sitio de portafolio' },
+  { image: '/placeholder.svg', title: 'Proyecto 3', description: 'UI de aplicación móvil' },
+  { image: '/placeholder.svg', title: 'Proyecto 4', description: 'Rediseño de blog' },
+];
+
+const testimonials = [
+  { name: 'Juan Pérez', photo: '/placeholder.svg', quote: '¡Servicio excepcional y diseños impresionantes!' },
+  { name: 'María García', photo: '/placeholder.svg', quote: 'Transformaron completamente nuestra presencia en línea.' },
+  { name: 'Carlos Rodríguez', photo: '/placeholder.svg', quote: 'Profesionales, creativos y altamente recomendados.' },
+];
+
+const logoUrl = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/brave_QLDGVVybUM-0OmccNjpOJXFsJ6pgr8Rt8FynHFyXS.png";
+---
+
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <title>juancarlos.dev - Desarrollo Web</title>
+</head>
+<body class="min-h-screen bg-white text-gray-800">
+  <!-- Barra de navegación -->
+  <nav class="bg-white shadow-md">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <a href="/" class="flex items-center space-x-2">
+          <Image src={logoUrl} alt="juancarlos.dev logo" width={50} height={50} />
+          <span class="text-xl font-bold text-[#B78628]">juancarlos.dev</span>
+        </a>
+        <div class="hidden md:flex space-x-4">
+          <a href="#servicios" class="text-gray-800 hover:text-[#B78628]">Servicios</a>
+          <a href="#portafolio" class="text-gray-800 hover:text-[#B78628]">Portafolio</a>
+          <a href="#testimonios" class="text-gray-800 hover:text-[#B78628]">Testimonios</a>
+          <a href="#contacto" class="text-gray-800 hover:text-[#B78628]">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sección de Encabezado -->
+  <header class="relative h-screen flex items-center justify-center text-white bg-[#B78628]">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative z-10 text-center px-4">
+      <h1 class="text-5xl md:text-6xl font-bold mb-4">Desarrollo Web Profesional</h1>
+      <p class="text-xl md:text-2xl mb-8">Creando experiencias digitales hermosas y funcionales</p>
+      <a href="#contacto" class="bg-white text-[#B78628] px-8 py-3 rounded-full text-lg font-semibold hover:bg-opacity-90 transition duration-300">
+        Contáctanos
+      </a>
+    </div>
+  </header>
+
+  <!-- Sección de Servicios -->
+  <section id="servicios" class="py-20 px-4 bg-gray-100">
+    <h2 class="text-4xl font-bold text-center mb-12 text-[#B78628]">Nuestros Servicios</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      {services.map((service) => (
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <Icon name={service.icon} class="w-12 h-12 mx-auto mb-4 text-[#B78628]" />
+          <h3 class="text-xl font-semibold mb-2">{service.title}</h3>
+          <p class="text-gray-600">{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Sección de Portafolio -->
+  <section id="portafolio" class="py-20 px-4">
+    <h2 class="text-4xl font-bold text-center mb-12 text-[#B78628]">Nuestro Trabajo</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      {portfolio.map((project) => (
+        <div class="relative group overflow-hidden rounded-lg shadow-md">
+          <Image
+            src={project.image}
+            alt={project.title}
+            width={400}
+            height={300}
+            class="transition-transform duration-300 group-hover:scale-110"
+          />
+          <div class="absolute inset-0 bg-[#B78628] bg-opacity-90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div class="text-center text-white">
+              <h3 class="text-xl font-semibold mb-2">{project.title}</h3>
+              <p class="mb-4">{project.description}</p>
+              <a href="#" class="text-white border border-white px-4 py-2 rounded-full hover:bg-white hover:text-[#B78628] transition duration-300">
+                Ver Proyecto
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Sección de Testimonios -->
+  <section id="testimonios" class="py-20 px-4 bg-gray-100">
+    <h2 class="text-4xl font-bold text-center mb-12 text-[#B78628]">Lo que Dicen Nuestros Clientes</h2>
+    <div class="max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {testimonials.map((testimonial) => (
+          <div class="bg-white rounded-lg p-8 text-center shadow-md">
+            <Image
+              src={testimonial.photo}
+              alt={testimonial.name}
+              width={80}
+              height={80}
+              class="rounded-full mx-auto mb-4"
+            />
+            <p class="text-lg mb-4 text-gray-700">"{testimonial.quote}"</p>
+            <p class="font-semibold text-[#B78628]">{testimonial.name}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Contacto -->
+  <section id="contacto" class="py-20 px-4">
+    <h2 class="text-4xl font-bold text-center mb-12 text-[#B78628]">Contáctanos</h2>
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-12">
+      <form class="flex-1 space-y-4">
+        <input type="text" placeholder="Nombre" class="w-full p-2 border border-gray-300 rounded" required />
+        <input type="email" placeholder="Email" class="w-full p-2 border border-gray-300 rounded" required />
+        <input type="text" placeholder="Asunto" class="w-full p-2 border border-gray-300 rounded" required />
+        <textarea placeholder="Mensaje" rows="5" class="w-full p-2 border border-gray-300 rounded" required></textarea>
+        <button type="submit" class="bg-[#B78628] text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-90 transition duration-300">
+          Enviar Mensaje
+        </button>
+      </form>
+      <div class="flex-1 space-y-6">
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-[#B78628]">Información de Contacto</h3>
+          <p>123 Calle Desarrollo Web, Ciudad, País</p>
+          <p>Teléfono: +1 234 567 890</p>
+          <p>Email: info@juancarlos.dev</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-[#B78628]">Síguenos</h3>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-600 hover:text-[#B78628]">
+              <Icon name="mdi:instagram" class="w-6 h-6" />
+            </a>
+            <a href="#" class="text-gray-600 hover:text-[#B78628]">
+              <Icon name="mdi:twitter" class="w-6 h-6" />
+            </a>
+            <a href="#" class="text-gray-600 hover:text-[#B78628]">
+              <Icon name="mdi:facebook" class="w-6 h-6" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pie de Página -->
+  <footer class="bg-gray-100 py-8 px-4">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+      <p>&copy; 2023 juancarlos.dev. Todos los derechos reservados.</p>
+      <nav class="flex space-x-4 mt-4 md:mt-0">
+        <a href="#" class="text-gray-600 hover:text-[#B78628]">Política de Privacidad</a>
+        <a href="#" class="text-gray-600 hover:text-[#B78628]">Términos de Servicio</a>
+        <a href="#" class="text-gray-600 hover:text-[#B78628]">Contáctanos</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
